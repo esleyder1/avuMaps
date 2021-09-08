@@ -2,26 +2,26 @@
   <q-page class="full-width">
     <div class="q-pa-md">
       <div class="row">
-        <div class="col-9">
-          <div class="row">
-            <div class="col-2">
-              <q-select
-                @update:model-value="selectCountry"
-                bottom-slot
-                v-model="model"
-                :options="options"
-              >
-                <template v-slot:append>
-                  <q-avatar>
-                    <img :src="flagImg" />
-                  </q-avatar>
-                </template>
-              </q-select>
-            </div>
-          </div>
+        <div class="col-10">
           <co-map />
         </div>
-        <div class="col-3">
+
+        <div class="col-2">
+          <q-select
+            @update:model-value="selectCountry"
+            bottom-slot
+            v-model="model"
+            :options="options"
+          >
+            <template v-slot:append>
+              <q-avatar>
+                <img :src="flagImg" />
+              </q-avatar>
+            </template>
+          </q-select>
+        </div>
+      </div>
+      <!--<div class="col-3">
           <h5>Noticias</h5>
           <q-card>
             <q-card-section>
@@ -36,8 +36,7 @@
 
             <q-card-section class="q-pt-none"> </q-card-section>
           </q-card>
-        </div>
-      </div>
+        </div>-->
     </div>
   </q-page>
 </template>
@@ -54,7 +53,7 @@ export default {
       customDialogModel: false,
       model: "Colombia",
       options: ["Colombia", "México"],
-      flagImg: "col.png"
+      flagImg: "col.png",
     };
   },
   components: {
@@ -62,12 +61,12 @@ export default {
   },
   methods: {
     selectCountry(e) {
-      if(e === "México"){
-        this.flagImg = "mex.png"
-      }else if(e === "Colombia"){
-        this.flagImg = "col.png"
+      if (e === "México") {
+        this.flagImg = "mex.png";
+      } else if (e === "Colombia") {
+        this.flagImg = "col.png";
       }
-    }
-  }
+    },
+  },
 };
 </script>

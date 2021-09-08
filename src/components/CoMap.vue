@@ -1,7 +1,118 @@
 <template>
   <div class="q-pa-md">
     <div class="row">
-      <div class="col">
+      <div class="col-5">
+        <q-card>
+          <q-card-section>
+            <div class="text-h6">{{ title }}</div>
+            <div class="row">
+              <div class="col">
+                <div class="infoDeparments">
+                  <div
+                    class="departmentColor"
+                    style="background-color: #ffff00"
+                  ></div>
+                  <div><span>Amazónas</span></div>
+                </div>
+                <div class="infoDeparments">
+                  <div
+                    class="departmentColor"
+                    style="background-color: #ffff00"
+                  ></div>
+                  <div><span>Antioquía</span></div>
+                </div>
+                <div class="infoDeparments">
+                  <div
+                    class="departmentColor"
+                    style="background-color: #ffff00"
+                  ></div>
+                  <div><span>Arauca</span></div>
+                </div>
+                <div class="infoDeparments">
+                  <div
+                    class="departmentColor"
+                    style="background-color: #ffff00"
+                  ></div>
+                  <div><span>Atlántico</span></div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="infoDeparments">
+                  <div
+                    class="departmentColor"
+                    style="background-color: #ffff00"
+                  ></div>
+                  <div><span>Bolívar</span></div>
+                </div>
+                <div class="infoDeparments">
+                  <div
+                    class="departmentColor"
+                    style="background-color: #ffff00"
+                  ></div>
+                  <div><span>Boyacá</span></div>
+                </div>
+                <div class="infoDeparments">
+                  <div
+                    class="departmentColor"
+                    style="background-color: #ffff00"
+                  ></div>
+                  <div><span>Caldas</span></div>
+                </div>
+                <div class="infoDeparments">
+                  <div
+                    class="departmentColor"
+                    style="background-color: #ffff00"
+                  ></div>
+                  <div><span>Caquetá</span></div>
+                </div>
+
+                <div class="infoDeparments">
+                  <div
+                    class="departmentColor"
+                    style="background-color: #ffff00"
+                  ></div>
+                  <div><span>Casanare</span></div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="infoDeparments">
+                  <div
+                    class="departmentColor"
+                    style="background-color: #669966"
+                  ></div>
+                  <div><span>Cauca</span></div>
+                </div>
+                <div class="infoDeparments">
+                  <div
+                    class="departmentColor"
+                    style="background-color: #ffff00"
+                  ></div>
+                  <div><span>Cesar</span></div>
+                </div>
+                <div class="infoDeparments">
+                  <div
+                    class="departmentColor"
+                    style="background-color: #ffff00"
+                  ></div>
+                  <div><span>Chocó</span></div>
+                </div>
+                <div class="infoDeparments">
+                  <div
+                    class="departmentColor"
+                    style="background-color: #ffff00"
+                  ></div>
+                  <div><span>Córdoba</span></div>
+                </div>
+              </div>
+            </div>
+          </q-card-section>
+
+<!--           <q-card-section class="q-pt-none">
+            <canvas v-show="active" id="planet-chart"></canvas>
+          </q-card-section> -->
+        </q-card>
+      </div>
+      <div class="col-7">
         <div class="svg-wrapper">
           <svg
             @mouseleave="hideDepartmentInfo"
@@ -317,42 +428,6 @@
           </svg>
         </div>
       </div>
-      <div class="col">
-        <q-card>
-          <q-card-section>
-            <div class="text-h6">{{ title }}</div>
-            <div class="row">
-              <div class="col">
-                <div class="infoDeparments">
-                  <div class="departmentColor" style="background-color:#FFFF00"></div>
-                  <div><span>Amazónas</span></div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="infoDeparments">
-                  <div class="departmentColor" style="background-color:#FFFF99"></div>
-                  <div><span>Vaupés</span></div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="infoDeparments">
-                  <div class="departmentColor" style="background-color:#669966"></div>
-                  <div><span>Guainía</span></div>
-                </div>
-              </div>
-            </div>
-
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-            natus a nemo magni porro. Vel consequatur eligendi dignissimos quia
-            assumenda. Quisquam illum placeat corporis ipsa sequi iure
-            cupiditate assumenda odit!
-          </q-card-section>
-
-          <q-card-section class="q-pt-none">
-            <canvas v-show="active" id="planet-chart"></canvas>
-          </q-card-section>
-        </q-card>
-      </div>
     </div>
   </div>
   <q-dialog v-model="customDialogModel">
@@ -427,24 +502,22 @@ export default {
   padding: 0 10%;
   height: auto;
 }
-path:hover{
-  opacity: .5
+path:hover {
+  opacity: 0.5;
 }
 .svg-wrapper {
   position: relative;
   display: inline-block;
 }
 .infoDeparments div {
-    display: inline-block;
-    vertical-align: text-bottom;
-    padding: 3px;
-    padding-left: 12px;
+  display: inline-block;
+  vertical-align: text-bottom;
+  padding: 3px;
+  padding-left: 12px;
 }
 .departmentColor {
-
   width: 2em;
   height: 2em;
   border-radius: 2em;
 }
-
 </style>

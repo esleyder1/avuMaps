@@ -1,5 +1,5 @@
 export const planetChartData = {
-    type: "doughnut", //doughnut bar, line
+    type: "line", //doughnut bar, line
     data: {
       labels: ["Población", "especies", "exportaciones", "premios", "lorem", "moret", "lomren2", "test2"],
       datasets: [
