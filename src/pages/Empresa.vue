@@ -20,6 +20,12 @@
         </q-item-label>
       </q-item-section>
     </q-item>
+    <q-banner style="text-align: center">
+      Somos una fundación que combate la discriminación por edad de forma
+      intergeneracional. <br />
+      Un HUB de innovación para el envejecimientosin fines de lucro enfocado en
+      crear soluciones sostenibles y escalables.
+    </q-banner>
   </q-card>
 
   <q-page class="window-height">
