@@ -24,18 +24,20 @@
                                     </q-input>
                                 </div>
                                 <div class="col-5">
-                                    <q-input
-                                        outlined
-                                        rounded
+                                    <q-select
+                                        v-model="dep"
                                         lazy-rules
+                                        :options="optionsDep"
                                         :rules="[this.required, this.short]"
-                                        type="text"
+                                        clearable
+                                        rounded
+                                        outlined
                                         label="Departamento"
                                     >
                                     <template v-slot:prepend>
                                         <q-icon :name="departamento"></q-icon>
                                     </template>
-                                    </q-input>
+                                    </q-select>
                                 </div>
                             </div>
                             <q-input
@@ -110,7 +112,7 @@
                                         lazy-rules
                                         :rules="[this.required, this.short]"
                                         type="number"
-                                        label="Años"
+                                        label="Años de constitución"
                                     >
                                     <template v-slot:prepend>
                                         <q-icon :name="anos"></q-icon>
@@ -185,7 +187,7 @@
                                 <div class="row">
                                     <div class="col-md-auto">
                                         <q-icon :name="ejes"></q-icon>
-                                        <p>Seleccione sus ejes</p>
+                                        <p>Ejes de impacto</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -204,13 +206,13 @@
                                 </div>
                                 <div class="row">                                   
                                     <div class="col">
-                                        <q-checkbox v-model="ejes5" label="Dance" color="cyan"/>
+                                        <q-checkbox v-model="ejes5" label="Danza" color="cyan"/>
                                     </div>                                 
                                     <div class="col">
                                         <q-checkbox v-model="ejes6" label="Salud" color="pink"/>
                                     </div>
                                     <div class="col">
-                                        <q-checkbox v-model="ejes7" label="Educación" color="green"/>
+                                        <q-checkbox v-model="ejes7" label="Educación formal" color="green"/>
                                     </div>
                                     <div class="col">
                                         <q-checkbox v-model="ejes8" label="Manualidades" color="yellow"/>
@@ -235,10 +237,10 @@
                                         <q-checkbox v-model="ejes13" label="Viajes" color="red"/>
                                     </div>
                                     <div class="col">
-                                        <q-checkbox v-model="ejes14" label="Clases" color="cyan"/>
+                                        <q-checkbox v-model="ejes14" label="Educación informal" color="cyan"/>
                                     </div>
                                     <div class="col">
-                                        <q-checkbox v-model="ejes15" label="Diplomados"  color="pink"/>
+                                        <q-checkbox v-model="ejes15" label="Otros"  color="pink"/>
                                     </div>
                                     <div class="col">
                                         <q-checkbox v-model="ejes16" label="Rehabilitación" color="green"/>
@@ -314,14 +316,6 @@
                                         <q-checkbox v-model="ejes36" label="Actividades lúdicas" color="purple" />
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <q-checkbox v-model="ejes37" label="Otros" color="orange"/>
-                                    </div>
-                                    <div class="col"></div>
-                                    <div class="col"></div>
-                                    <div class="col"></div>
-                                </div>
                                 <div class="row" style="margin:10px"></div>
                             </div>
                             <q-input
@@ -367,6 +361,16 @@
                                 <q-icon :name="ta3"></q-icon>
                             </template>
                             </q-input>
+                            <q-card-actions class="q-px-xl">
+                                <q-btn
+                                unelevated
+                                size="lg"
+                                color="secondary"
+                                @click="submit"
+                                class="full-width text-white"
+                                :label="btnLabel"
+                                />
+                            </q-card-actions>
                         </q-form>
                     </q-card-section>
                 </q-card>
@@ -421,6 +425,14 @@ export default{
                 'Institución de gobierno', 'Institución privada'
             ],
 
+            dep: ref(null),
+            optionsDep:[
+                'Amazonas', 'Antioquia', 'Arauca', 'Atlántico', 'Bogotá', 'Bolívar', 'Boyacá', 'Caldas', 'Caquetá', 'Casanare', 'Cauca',
+                'Cesar', 'Chocó', 'Córdoba', 'Cundinamarca', 'Guainía', 'Guaviare', 'Huila', 'La Guajira', 'Magdalena', 'Meta',
+                'Nariño', 'Norte de Santander', 'Putumayo', 'Quindío', 'Risaralda', 'San Andrés y Providencia', 'Santander', 'Sucre',
+                'Tolima', 'Valle del Cauca', 'Cali', 'Vaupés', 'Vichada'
+            ],
+
             ejes1: ref(false), ejes2: ref(false), ejes3: ref(false), ejes4: ref(false), ejes5: ref(false),
             ejes6: ref(false), ejes7: ref(false), ejes8: ref(false), ejes9: ref(false), ejes10: ref(false),
             ejes11: ref(false), ejes12: ref(false), ejes13: ref(false), ejes14: ref(false), ejes15: ref(false),
@@ -428,9 +440,15 @@ export default{
             ejes21: ref(false), ejes22: ref(false), ejes23: ref(false), ejes24: ref(false), ejes25: ref(false),
             ejes26: ref(false), ejes27: ref(false), ejes28: ref(false), ejes29: ref(false), ejes30: ref(false),
             ejes31: ref(false), ejes32: ref(false), ejes33: ref(false), ejes34: ref(false), ejes35: ref(false),
-            ejes36: ref(false), ejes37: ref(false),
+            ejes36: ref(false),
+            btnLabel: "Registrar organización"
         }        
-    }    
+    },
+    methods :{
+        required(val){
+            return (val && val.length > 0) || "El campo no puede estar vacio";
+        }
+    }
 }
 
 </script>
